@@ -1,0 +1,237 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>CLRP | Seleccionar Instancia</title>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="css/mod_select.css" rel="stylesheet">
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/bootswatch.css" rel="stylesheet">
+    <link href="css/lightbox.css" rel="stylesheet" />
+    <script src="js/jquery-1.10.2.js"></script> 
+    <script src="js/html5.js"></script>
+    <script src="js/bsa.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/application.js"></script>
+    <script src="js/bootswatch.js"></script>
+    <script src="js/main.js"></script>
+     <script src="js/file.js"></script>
+    <script src="js/lightbox-2.6.min.js"></script>
+        <link href="img/waclrp_icon.ico" rel="icon" type="image/x-icon" />
+    <link href="img/waclrp_icon.ico" rel="shortcut icon" type="image/x-icon" />
+
+  </head>
+  <body class="preview" data-spy="scroll" data-target=".subnav" data-offset="80">
+
+ <div class="navbar navbar-fixed-top">
+ <a style="display:none" id="loading" href="img/loading.gif" data-lightbox="Cargando..." title="Por favor espera..."></a>
+   <div class="navbar-inner">
+     <div class="container">
+       <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+         <span class="icon-bar"></span>
+         <span class="icon-bar"></span>
+         <span class="icon-bar"></span>
+       </a>
+       <a class="brand" href="">WACLRP</a>
+       <div class="nav-collapse" id="main-menu">
+        <ul class="nav" id="main-menu-left">
+              <li><a id="swatch-link" href="index.html">Home</a></li>
+		  <li class="dropdown">
+            <a class="dropdown-toggle" data-toggle="dropdown">Resolver instancias <b class="caret"></b></a>
+            <ul class="dropdown-menu" id="swatch-menu">
+				<li><a href="instancias.jsp">Seleccionar instancia predefinida</a></li>
+				<li class="divider"></li>
+				<li><a href="Crear.jsp">Crear instancia teórica</a></li>
+				<li style="display:none"><a href="Crear_Practica.html">Crear instancia práctica</a></li>
+			</ul>
+		  <li><a id="swatch-link" href="resultados.html">Resultados</a></li>
+			</ul>       
+       </div>
+     </div>
+   </div>
+ </div>
+
+<div class="container">
+  <header class="jumbotron subhead" id="overview">
+  <div class="row">
+	<div class="span6">
+      <h1>WACLRP</h1>
+      <p class="lead">Aplicación Web para el problema de localización y ruteo con capacidad restringida.</p>	    
+
+	</div>
+</div>
+  
+  <div class="subnav">
+    
+	
+	<ul class="nav nav-pills">
+		<li><a>Instancias </a></li>
+	  	 <li class="dropdown">
+            <select id="instancias1" onclick="selecciona1();" onchange="cambiar();"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Grupo I <b class="caret"></b></a>
+            <ul>
+				<option value="0">Grupo I</option>
+				<option value="instancia_1_1">Instancia 1.1</option>
+				<option value="instancia_1_2">Instancia 1.2</option>
+				<option value="instancia_1_3">Instancia 1.3</option>
+				<option value="instancia_1_4">Instancia 1.4</option>
+				<option value="instancia_1_5">Instancia 1.5</option>
+				<option value="instancia_1_6">Instancia 1.6</option>
+				<option value="instancia_1_7">Instancia 1.7</option>
+				<option value="instancia_1_8">Instancia 1.8</option>
+				<option value="instancia_1_9">Instancia 1.9</option>
+				<option value="instancia_1_10">Instancia 1.10</option>
+				<option value="instancia_1_11">Instancia 1.11</option>
+				<option value="instancia_1_12">Instancia 1.12</option>
+
+			  </ul></select>
+          </li>
+	  	 <li class="dropdown">
+            <select id="instancias2" onclick="selecciona2();" onchange="cambiar();"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Grupo II<b class="caret"></b></a>
+				<ul>
+					<li><option value="0">Grupo II</option></li>
+					<option value="instancia_2_1">Instancia 2.1</option>
+					<option value="instancia_2_2">Instancia 2.2</option>
+					<option value="instancia_2_3">Instancia 2.3</option>
+					<option value="instancia_2_4">Instancia 2.4</option>
+					<option value="instancia_2_5">Instancia 2.5</option>
+					<option value="instancia_2_6">Instancia 2.6</option>
+					<option value="instancia_2_7">Instancia 2.7</option>
+					<option value="instancia_2_8">Instancia 2.8</option>
+					<option value="instancia_2_9">Instancia 2.9</option>
+					<option value="instancia_2_10">Instancia 2.10</option>
+					<option value="instancia_2_11">Instancia 2.11</option>
+					<option value="instancia_2_12">Instancia 2.12</option>
+					<option value="instancia_2_13">Instancia 2.13</option>
+					<option value="instancia_2_14">Instancia 2.14</option>
+					<option value="instancia_2_15">Instancia 2.15</option>
+					<option value="instancia_2_16">Instancia 2.16</option>
+					<option value="instancia_2_17">Instancia 2.17</option>
+					<option value="instancia_2_18">Instancia 2.18</option>
+					<option value="instancia_2_19">Instancia 2.19</option>
+					<option value="instancia_2_20">Instancia 2.20</option>
+					<option value="instancia_2_21">Instancia 2.21</option>
+					<option value="instancia_2_22">Instancia 2.22</option>
+					<option value="instancia_2_23">Instancia 2.23</option>
+					<option value="instancia_2_24">Instancia 2.24</option>
+					<option value="instancia_2_25">Instancia 2.25</option>
+					<option value="instancia_2_26">Instancia 2.26</option>
+					<option value="instancia_2_27">Instancia 2.27</option>
+					<option value="instancia_2_28">Instancia 2.28</option>
+					<option value="instancia_2_29">Instancia 2.29</option>
+					<option value="instancia_2_30">Instancia 2.30</option>
+			  </ul></select>
+          </li>
+	  	 <li class="dropdown">
+            <select id="instancias3" onclick="selecciona3();" onchange="cambiar();"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Grupo II<b class="caret"></b></a>
+				<ul>
+				<option value="0">Grupo III</option>
+				<option value="instancia_3_1">Instancia 3.1</option>
+				<option value="instancia_3_2">Instancia 3.2</option>
+				<option value="instancia_3_3">Instancia 3.3</option>
+				<option value="instancia_3_4">Instancia 3.4</option>
+				<option value="instancia_3_5">Instancia 3.5</option>
+				<option value="instancia_3_6">Instancia 3.6</option>
+				<option value="instancia_3_7">Instancia 3.7</option>
+				<option value="instancia_3_8">Instancia 3.8</option>
+				<option value="instancia_3_9">Instancia 3.9</option>
+				<option value="instancia_3_10">Instancia 3.10</option>
+				<option value="instancia_3_11">Instancia 3.11</option>
+				<option value="instancia_3_12">Instancia 3.12</option>
+				<option value="instancia_3_13">Instancia 3.13</option>
+				<option value="instancia_3_14">Instancia 3.14</option>
+				<option value="instancia_3_15">Instancia 3.15</option>
+				<option value="instancia_3_16">Instancia 3.16</option>
+				<option value="instancia_3_17">Instancia 3.17</option>
+				<option value="instancia_3_18">Instancia 3.18</option>
+				<option value="instancia_3_19">Instancia 3.19</option>
+				<option value="instancia_3_20">Instancia 3.20</option>
+				<option value="instancia_3_21">Instancia 3.21</option>
+				<option value="instancia_3_22">Instancia 3.22</option>
+				<option value="instancia_3_23">Instancia 3.23</option>
+				<option value="instancia_3_24">Instancia 3.24</option>
+				<option value="instancia_3_25">Instancia 3.25</option>
+				<option value="instancia_3_26">Instancia 3.26</option>
+				<option value="instancia_3_27">Instancia 3.27</option>
+				<option value="instancia_3_28">Instancia 3.28</option>
+				<option value="instancia_3_29">Instancia 3.29</option>
+				<option value="instancia_3_30">Instancia 3.30</option>
+				<option value="instancia_3_31">Instancia 3.31</option>
+				<option value="instancia_3_32">Instancia 3.32</option>
+				<option value="instancia_3_33">Instancia 3.33</option>
+				<option value="instancia_3_34">Instancia 3.34</option>
+				<option value="instancia_3_35">Instancia 3.35</option>
+				<option value="instancia_3_36">Instancia 3.36</option>
+
+		  </ul></select>
+          </li> 
+	  
+         <li><button class="btn btn-primary" id="ejecutar" onclick="ejecutar();" href="#"  ><i class="icon-random icon-white"></i> Ejecutar</button></li>
+
+    </ul>
+  </div>
+</header>
+
+<!-- Tables================================================== -->
+<section id="tables" style="display:none">
+  <div id="titulo" class="page-header">
+    <h3>Datos de la instancia seleccionada</h3>
+  </div>
+
+<form class="form-horizontal well"> 
+  <table class="table table-bordered table-striped table-hover">
+ <h4>Parámetros</h4>
+   
+	<thead>
+      <tr>
+        <th>Cantidad de depósitos</th>
+        <th>Cantidad de clientes</th>
+        <th>Capacidad de cada vehículo</th>
+        <th>Costo de uso de ruta</th>
+      </tr>
+    </thead>
+    <tbody id="parametros">
+</tbody></table>
+
+  <div class="page-header">
+ <h4>Depósitos</h4>
+  </div>
+  <table class="table table-bordered table-striped table-hover">
+	<thead>
+      <tr>
+        <th>ID</th>
+        <th>Coordenada X</th>
+        <th>Coordenada Y</th>
+        <th>Capacidad depósito</th>
+        <th>Costo apertura</th>
+      </tr>
+    </thead>
+    <tbody id="depositos">
+</tbody></table>
+
+ <table class="table table-bordered table-striped table-hover">
+    <h4>Clientes</h4>
+	<thead>
+      <tr>
+        <th>ID</th>
+        <th>Coordenada X</th>
+        <th>Coordenada Y</th>
+        <th>Demanda</th>
+      </tr>
+    </thead>
+    <tbody id="clientes">
+</tbody></table>
+</form>
+</section>
+
+     <!-- Footer ================================================== -->
+      <hr>
+      <footer id="footer">
+        <p class="pull-right"><a href="#">Volver arriba</a></p>
+		</footer>
+    </div>  
+  </body>
+</html>
+
+

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+"-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+"http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+    <constant name="struts.devMode" value="true" />
+
+    <package name="default" namespace="/" extends="struts-default,json-default">
+
+        <action name="index">
+            <result>index.html</result>
+        </action>
+
+        <action name="RunClrp" class="cl.unab.CLRPWeb.Action.RunClrpAction">
+            <result name="SUCCESS">resultados.html
+            </result>
+        </action>
+
+        <action name="SendData" class="cl.unab.CLRPWeb.Action.RunClrpAction">
+            <result type="json" />
+        </action>
+
+    </package>
+
+    <package name="json-default" extends="struts-default">
+        <result-types>
+            <result-type name="json" class="org.apache.struts2.json.JSONResult" />
+        </result-types>
+    </package>
+
+
+
+
+
+</struts>
