@@ -90,10 +90,10 @@ function ReadInstancia(instancia) {
 	
 	if(ReadParameter(instancia) && ReadDepot(instancia) && ReadCostumer(instancia) ){
 		$("#titulo").empty();
-		console.log(instancia);
+	
 		var aux =instancia.replace("_"," ");
 		var nombre =aux.replace("_",".");
-		console.log(nombre);
+		
 		$("#titulo").append('<h3>Datos de la '+nombre+'</h3>');
 		$("#tables").show();
 	}

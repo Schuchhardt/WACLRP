@@ -6,9 +6,14 @@
      sys.parameters({
          stiffness: 512,
          repulsion: 2600,
-         gravity: true
+         gravity: false
      });
      sys.renderer = Renderer("#viewport");
+     
+//     var nav = Nav("#nav")
+//     $(sys.renderer).bind('navigate', nav.navigate)
+//     $(nav).bind('mode', sys.renderer.switchMode)
+//     nav.init()
 
  }
 
@@ -197,7 +202,7 @@
                                  dom.removeClass('linkable')
                                  window.status = ''
                              }
-                         } else if ($.inArray(nearest.node.name, ['international', 'participation']) >= 0) {
+                         } else if ($.inArray(nearest.node.name, ['international']) >= 0) {
                              if (nearest.node.name != _section) {
                                  _section = nearest.node.name
                                  that.switchSection(_section)

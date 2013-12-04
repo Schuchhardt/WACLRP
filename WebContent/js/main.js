@@ -1,7 +1,7 @@
-	function ajaxexample(inst) {
+	function ajaxexample(instancia) {
 	    $.ajax({
 	        type: 'POST',
-	        url: 'action/SendData.action?nombre=' + inst,
+	        url: 'action/SendData.action?nombre=' + instancia,
 	        dataType: 'json',
 	        complete: function (data) {
 	            var jsonajax = data;

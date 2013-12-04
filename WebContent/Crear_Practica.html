@@ -53,12 +53,11 @@
             <ul class="dropdown-menu" id="swatch-menu">
 			<li><a href="instancias.html">Seleccionar instancia predefinida</a></li>
 			<li class="divider"></li>
-			<li><a href="Crear.jsp">Crear Instancia Teorica</a></li>
+			<li><a href="Crear.html">Crear Instancia Teorica</a></li>
 			<li><a href="Crear_Practica.html">Crear Instancia Práctica</a></li>
 			</li>
 			</ul>
 		  <li><a id="swatch-link" href="resultados.html">Resultados</a></li>
-  		  <li><a id="swatch-link" href="#">Contacto</a></li>
         </ul>
        </div>
      </div>
@@ -79,39 +78,88 @@
 			
  <div class="subnav2">
 	<ul class="nav nav-pills">
-		<li>Ingrese parametros de la instancia</li>
+		<li>Haga click derecho en el mapa para ingresar Depósitos y Clientes</li>
 </ul>
-
-<table class="table table-bordered table-striped table-hover">
-	<thead>
-      <tr>
-        <th>Nro de Vehiculos</th>
-        <th>Nro de Depositos</th>
-        <th>Capacidad de los vehiculos</th>
-        <th>Costo por uso de ruta</th>
-      </tr>
-    </thead>
-    <tbody>
-      </table> 
-        <input type=text></input>
-	<input type=text></input>
-	<input type=text></input>
-	<input type=text></input>
  
  </div>
+
+
  
 </header>
 
 
 <!-- Navegacion de resultados GOOGLE MAP================================================== -->
 
-<div Class="subnav3">
+<div class="subnav3">
   <div id="map_canvas" style="width:100%; height:400px"></div>
-
 </div>
+<p></p>
+ <div class="subnav4">
+	    <button class="btn btn-primary" onclick="calcRoute();">Resolver</button>
+            <button type="reset" class="btn" onclick="confirmar();">Limpiar</button>
+          </div>
+<section id="datosentrada" style="display:none">
 <div class="row">
-<p class="pull-right"><a href="#">Volver arriba</a></p>
-</div>
+   <h4>Depósitos</h4>
+  </div>
+  <table class="table table-bordered table-striped table-hover">
+	<thead>
+      <tr>
+        <th>ID</th>
+        <th>Coordenada X</th>
+        <th>Coordenada Y</th>
+        <th>Capacidad depósito</th>
+        <th>Costo apertura</th>
+      </tr>
+    </thead>
+    <tbody id="depositos">
+
+</tbody></table>
+
+ <table class="table table-bordered table-striped table-hover">
+    <h4>Clientes</h4>
+	<thead>
+      <tr>
+        <th>ID</th>
+        <th>Coordenada X</th>
+        <th>Coordenada Y</th>
+        <th>Demanda</th>
+      </tr>
+    </thead>
+    <tbody id="clientes">
+</tbody></table>
+</section>
+<section id="resultados" style="display:none">
+  <table class="table table-bordered table-striped table-hover">
+     <h3 id="titulo">Resumen</h3>
+	<thead>
+      <tr>
+        <th>Función Objetivo</th>
+        <th>Costo Rutas</th>
+        <th>Costo Nrutas</th>
+        <th>Costo Depósitos</th>
+      </tr>
+    </thead>
+    <tbody id=resumen>
+	  
+</tbody></table>
+
+   <table class="table table-bordered table-striped table-hover">
+    <h4>Demandas</h4>
+	<thead>
+      <tr>
+        <th>#Ruta</th>
+        <th>Demanda</th>
+        <th>Estado</th>
+      </tr>
+    </thead>
+    <tbody id=demandas>
+
+</tbody></table>
+</section>
+
+ 
+         
 
 <!-- Footer================================================== -->
 <footer id="footer">

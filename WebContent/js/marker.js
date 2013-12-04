@@ -13,7 +13,6 @@
         var tmp=new google.maps.Marker(opt);
         
         if (opt.pos) tmp.setPosition(opt.pos);
-        //tmp.setVisible(opt.visible||true);
         
         if (opt.name) {
             if (markers[opt.name] == undefined) markers[opt.name]=[];
@@ -30,7 +29,7 @@
         }
         
         // Borrar, esconder y mostrar
-        tmp.delete=function(){
+        tmp.erase=function(){
             this.setMap(null);
         }.bind(tmp);
         
@@ -41,11 +40,11 @@
         tmp.show=function(){
             google.maps.event.trigger(this, 'show');
             this.setVisible(true);
-        }.bind(tmp)
+        }.bind(tmp);
         
         tmp.isVisible=function(){
-            return this.visible
-        }.bind(tmp)
+            return this.visible;
+        }.bind(tmp);
         
         // Agrega mensajes a los marcadores
         tmp.info=function(message){
@@ -74,15 +73,15 @@
         
         return tmp;
         
-    }
+    };
     
     // Para recorrer todos por tipo
     var foreachMarkerByName=function(name,callback){
         
-        var toRet=false
+        var toRet=false;
         
         if (typeof name != 'object') {
-            name=[name]
+            name=[name];
         }
         
         for (var a in name){
@@ -98,7 +97,7 @@
         }
         
         return toRet;
-    }
+    };
     
     // Esconder todos los marcadores por tipo
     $.hideMarkers=function(name){
@@ -106,20 +105,20 @@
             el.hide();
         });
         return this;
-    }
+    };
     
     // Borrar todos los marcadores por tipo
     $.deleteMarkers=function(name){
         foreachMarkerByName(name,function(el){            
-            el.delete();
+            el.erase();
         });
         delete markers[name];
         return this;
-    }
+    };
     
     $.getMarkers=function(name){
         return markers[name]||false;
-    }
+    };
     
     $.getMarkersBound=function(name){
         var bounds=new google.maps.LatLngBounds();
@@ -128,7 +127,7 @@
         });
         
         return bounds;
-    }
+    };
     
     $.areMarkersVisible=function(name){
         
@@ -140,11 +139,11 @@
         
         return toRet;
         
-    }
+    };
     
     $.setMarkersBound=function(name){
         map.fitBounds($.getMarkersBound(name));
-    }
+    };
     
     $(function(){
         $('#map-canvas').on('click','div.box_datoPunto a.avanzar',function(e){
@@ -156,7 +155,7 @@
                 
                 if (name=="searchMarkers"&&a==0) {
                     name="poliMarkers";
-                    a=-1
+                    a=-1;
                 } else if (name=="poliMarkers"&&markers[name][parseInt(a)+1]==undefined) {
                     a=0;
                     name="searchMarkers";

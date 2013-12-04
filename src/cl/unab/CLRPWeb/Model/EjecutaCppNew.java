@@ -1,7 +1,8 @@
 package cl.unab.CLRPWeb.Model;
+
 import java.io.*;
 
-public class EjecutaCpp { 
+public class EjecutaCppNew { 
 	
 	public String instancia;
 
@@ -10,7 +11,7 @@ public class EjecutaCpp {
     	
         try {  	
         	///home/waclrp/
-        	String command="/home/waclrp/jboss-as-7.1.1.Final/bin/clrp_pre.sh "+nombreinstancia+"";
+        	String command="/home/waclrp/jboss-as-7.1.1.Final/bin/clrp_new.sh "+nombreinstancia+"";
         	
         	Process p=Runtime.getRuntime().exec(command); 
             InputStream is = p.getInputStream(); 

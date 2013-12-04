@@ -44,8 +44,8 @@
             <ul class="dropdown-menu" id="swatch-menu">
 			<li><a href="instancias.html">Seleccionar instancia predefinida</a></li>
 			<li class="divider"></li>
-			<li><a href="Crear.jsp">Crear instancia teórica</a></li>
-			<li style="display:none"><a href="Crear_Practica.html">Crear instancia práctica</a></li>
+			<li><a href="Crear.html">Crear instancia teórica</a></li>
+			<li><a href="Crear_Practica.html">Crear instancia práctica</a></li>
 			</ul>
 		  <li><a id="swatch-link" href="resultados.html">Resultados</a></li>
         </ul>
@@ -82,12 +82,6 @@
       </tr>
     </thead>
     <tbody id=resumen>
-<!--       <tr> -->
-<!--         <td type="number"> 26456.9</td> -->
-<!--         <td type="number">298.871</td> -->
-<!--         <td type="number"> 5.000</td> -->
-<!--         <td type="number"> 21158</td> -->
-<!--       </tr> -->
 	  
 </tbody></table>
 <h4>Gráfico representativo</h4>
@@ -118,6 +112,32 @@
 
 </tbody></table>
 
+  <table class="table table-bordered table-striped table-hover">
+    <h4>Tiempos de ejecucion de cada Heurística</h4>
+	<thead>
+      <tr>
+        <th>Insertion</th>
+        <th>Swap</th>
+        <th>2-Opt</th>
+        <th>Exchange</th>
+        <th>Cross</th>
+      </tr>
+    </thead>
+    <tbody id=tiempoheuristicas>
+    </tbody></table>
+     <table class="table table-bordered table-striped table-hover">
+    <h4>Tiempos de fases del algoritmo</h4>
+	<thead>
+      <tr>
+        <th>Inicial</th>
+        <th>Mejoramiento</th>
+        <th>Ejecución</th>
+      </tr>
+    </thead>
+    <tbody id=tiemposapp>
+
+</tbody></table>
+
  </div><!-- /container encierra todo en un amrco mas delgado-->
 
       <footer id="footer">
@@ -126,9 +146,5 @@
 		</footer>
 
   </body>
-  <script>
-  jQuery(function($){
-	  ReadFinalReport();
-	  	initialize_arbor();
-	  	    });</script>
+
 </html>

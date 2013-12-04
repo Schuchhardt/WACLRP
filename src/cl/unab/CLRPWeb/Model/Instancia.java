@@ -4,16 +4,13 @@ import java.util.List;
 
 public class Instancia {
 	private String nombre;
-	private List<String> ParametrosList;
-	private List<String> CLientesList;
-	private List<String> DepositosList;
+	private List<String>  ParametrosList;
+	private List<String>  CLientesList;
+	private List<String>  DepositosList;
+	private List<String>  NombresList;
 
-	public String getNombre() {
-		return nombre;
-	}
-	public void setNombre(String nombre) {
-		this.nombre = nombre;
-	}
+
+
 	public List<String> getParametrosList() {
 		return ParametrosList;
 	}
@@ -32,6 +29,18 @@ public class Instancia {
 	public void setDepositosList(List<String> depositosList) {
 		DepositosList = depositosList;
 	}
-
+	public List<String> getNombresList() {
+		return NombresList;
+	}
+	public void setNombresList(List<String> nombresList) {
+		NombresList = nombresList;
+	}
+	public String getNombre() {
+		return nombre;
+	}
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
+	}
+	
 	
 }

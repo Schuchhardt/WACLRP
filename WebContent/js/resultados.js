@@ -1,7 +1,6 @@
 
 
 function ReadFinalReport() {
-	leernombre();
 	var aux, aux2;
 	var NroDepositos;
 	var NroClientes;
@@ -17,12 +16,7 @@ function ReadFinalReport() {
         var InfoRutas = lines[1];
         var InfoDemanda = lines[2];
         var InfoDepositos = lines[3];
-        var status = lines[4];
         var Tiempos = lines[5];
-        for (var i = 0; i < lines.length; i++) {
-            //console.log('-------lines ' + i + '--------------');
-            //console.log(lines[i]);
-        };
 
         aux = InfoDepositos.split("\n");
         NroDepositos = ((aux.length) - 1);
@@ -53,10 +47,8 @@ function ReadFinalReport() {
             CLiente_Ruta.length = 0;
         }
         
-var tiene=0;
+        var tiene=0;
         for (var i = 0; i < NroDepositos; i++) {
-       // 	console.log(i+1);
-       // 	console.log(DepositosAbiertos[i]);
         	   for (var j = 0; j < DepositosAbiertos.length; j++){
         	if((i+1)==(DepositosAbiertos[j])){
         		tiene=1;
@@ -106,9 +98,9 @@ var reset=auxcolor=0;
                     if ((i < (color.length-1)) ) {
                         colorindex = auxcolor + 1;
                     } 
-                    console.log(rutasall.length);
+               
                     if(rutasall.length==3){
-                    	console.log('hay 2');
+              
                     	sys.addEdge('Depósito#' + rutasall[0], nombrecl);
                     }else{
                     	 sys.addEdge('Cliente#' + (rutasall[j] - NroDepositos), nombrecl);
@@ -199,9 +191,18 @@ $("#resumen").append('<tr><td type="number">'+fobjetivo+'</td><td type="number">
 		demanda=auxxx[0];
 		var status=auxxx[1];
 		$("#demandas").append('<tr><td>Ruta #'+i+'</td><td>'+demanda+'</td><td>'+status+'</td></tr>');
-
 		 }
-        
+		 
+		 lines=Tiempos.split("\n");
+		 var auxtiempos=new Array();
+		 $('#tiempoheuristicas, #tiemposapp').empty();
+		 for (var i = 1; i < (lines.length); i++) {
+				var tiempo=lines[i-1].split('=');
+				var tiempos=tiempo[1]+' segundos';
+				auxtiempos.push(tiempos);
+			}
+		$("#tiempoheuristicas").append('<tr><td>'+auxtiempos[0]+'</td><td>'+auxtiempos[1]+'</td><td>'+auxtiempos[2]+'</td><td>'+auxtiempos[3]+'</td><td>'+auxtiempos[4]+'</td></tr>');
+		$("#tiemposapp").append('<tr><td>'+auxtiempos[5]+'</td><td>'+auxtiempos[6]+'</td><td>'+auxtiempos[7]+'</td></tr>');
         return initialize_arbor();
 
     });// end function read
@@ -209,14 +210,116 @@ $("#resumen").append('<tr><td type="number">'+fobjetivo+'</td><td type="number">
 
 function leernombre(){
 	var file="nombre.txt";
-
+	var nombre ="";
+	var ftxt="";
     $.get(file, function (txt) {
-    var ftxt =txt;
-    var nombre =ftxt;
-    var cd = nombre.replace('instancia_','');
-   // var xf= cd.replace('_','.');
+    ftxt =txt;
+    nombre =ftxt;
+    
+    if(nombre=="/opt/jboss-as-7.1.1.Final/bin/Instancia"){
+    	var nro=Math.floor((Math.random()*1000)+40);;
+        $("#titulo").empty();
+        $("#titulo").append('Resultados obtenidos de la nueva instancia '+nro+'');
+    }
+    else{
+    var cd1 = nombre.replace('instancia_','');
+    var cd2 = cd1.replace('_','.');
     $("#titulo").empty();
-$("#titulo").append('Resultados obtenidos de la instancia '+cd+'');
-
+    $("#titulo").append('Resultados obtenidos de la instancia '+cd2+'');
+    }
+    
+    ReadCostumer(ftxt);
     })	;
+    console.log(nombre);
+    console.log(ftxt);
+   
+   // ReadDepot(instancia);
 }
+
+function ReadCostumer(txtxt) {
+	var file ="Instancias/"+txtxt+"/costumer.txt";
+	
+    if($.get(file, function (txt) {
+    	
+    	var ftxt=txt;
+    	var lineas=ftxt.split("\n");
+    	
+    	   	$('#clientes').empty();
+    	
+        for (var i = 0; i < (lineas.length-1); i++) {
+    	var cliente=lineas[i].split("\t");
+    	var id =cliente[0];
+    	var coor_x=cliente[1];
+    	var coor_y=cliente[2];
+    	var demanda=cliente[3];
+    	sys.addNode('x'+(i+1), {
+              color: color[i+1],
+              radius: 1,
+              alpha: 0,
+              label: 'X: ' + coor_x
+          });
+    	sys.addNode('y'+(i+1), {
+            color: color[i+1],
+            radius: 1,
+            alpha: 0,
+            label: 'Y:' + coor_y
+        });
+    	sys.addNode('dem'+(i+1), {
+            color: color[i+1],
+            radius: 1,
+            alpha: 0,
+            label: 'Demanda: ' + demanda
+        });
+    	  
+    	sys.addEdge('Cliente#' + (id),'x'+(i+1));
+    	sys.addEdge('Cliente#' + (id), 'y'+(i+1));
+    	sys.addEdge('Cliente#' + (id), 'dem'+(i+1));
+    	
+    	
+        }
+
+    	return true;
+})// end function read
+   ){
+    	return true;
+    } 
+    else{
+    	return false;
+    }
+}
+
+function ReadDepot(instancia) {
+	var file ="Instancias/"+instancia+"/depot.txt";
+	
+    if($.get(file, function (txt) {
+    	
+    	var ftxt=txt;
+    	var lineas=ftxt.split("\n");
+    	$('#depositos').empty();
+        for (var i = 0; i < (lineas.length-1); i++) {
+	    	var deposito=lineas[i].split("\t");
+	    	var id =deposito[0];
+	    	var coor_x=deposito[1];
+	    	var coor_y=deposito[2];
+	    	var cap=deposito[3];
+	    	var o_cost=deposito[4];
+	  
+    	
+        }
+
+    	return true;
+})// end function read
+   ){
+    	return true;
+    } 
+    else{
+    	return false;
+    }
+}
+
+
+jQuery(function($){
+	leernombre()
+	  ReadFinalReport();
+	  	initialize_arbor();
+	  	    });
