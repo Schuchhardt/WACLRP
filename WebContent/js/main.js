@@ -1,7 +1,7 @@
 	function ajaxexample(instancia) {
 	    $.ajax({
-	        type: 'POST',
-	        url: 'action/SendData.action?nombre=' + instancia,
+	        type: 'GET',
+	        url: 'http://127.0.0.1:8080/WACLRP-WS/ws/runclrp/' + instancia,
 	        dataType: 'json',
 	        complete: function (data) {
 	            var jsonajax = data;

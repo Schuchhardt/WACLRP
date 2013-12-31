@@ -91,8 +91,7 @@ function ReadInstancia(instancia) {
 	if(ReadParameter(instancia) && ReadDepot(instancia) && ReadCostumer(instancia) ){
 		$("#titulo").empty();
 	
-		var aux =instancia.replace("_"," ");
-		var nombre =aux.replace("_",".");
+		var nombre =(instancia.replace("_"," ")).replace("_",".");
 		
 		$("#titulo").append('<h3>Datos de la '+nombre+'</h3>');
 		$("#tables").show();
@@ -104,3 +103,22 @@ function ReadInstancia(instancia) {
 	
 }
 
+function getAllInstances(){
+    $.ajax({
+        type: 'GET',
+        url: 'http://127.0.0.1:8080/WACLRP-WS/ws/getInstancias/all',
+        dataType: 'json',
+        complete: function (data) {
+            var jsonajax = data;
+            console.log(jsonajax.responseJSON.NombresList);
+//            if(jsonajax.length!=0){
+//            cambiardepag();}
+}
+ 
+    });
+}
+
+
+jQuery(function($){
+	getAllInstances();
+});
